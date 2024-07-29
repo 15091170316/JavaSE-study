@@ -1,6 +1,8 @@
 package com.wwt;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class Test {
     public static void main(String[] args) {
@@ -52,6 +54,52 @@ public class Test {
         String str2 = "true";
         boolean b = Boolean.parseBoolean(str2);
         System.out.println(b);
+
+        System.out.println("----------------------Arrays----------------------");
+
+        int[] arr = {2, 6, 3, 11, 22, 26, 9, 15, 27, 10, 4, 8, 25, 21, 10, 5, 11};
+        System.out.println(Arrays.toString(arr));
+        int[] ints = Arrays.copyOf(arr, 10);
+        System.out.println(Arrays.toString(ints));
+        int[] ints2 = Arrays.copyOf(arr, 20);
+        System.out.println(Arrays.toString(ints2));
+        int[] ints1 = Arrays.copyOfRange(arr, 3, 10);
+        System.out.println(Arrays.toString(ints1));
+        int[] ints3 = Arrays.copyOfRange(arr, 10, 30);
+        System.out.println(Arrays.toString(ints3));
+
+        Arrays.fill(ints3, 100);
+        System.out.println(Arrays.toString(ints3));
+
+//        Arrays.sort(arr);
+        System.out.println(Arrays.toString(arr));
+
+        Integer[] arr1 = {2, 6, 3, 11, 22, 26, 9, 15, 27, 10, 4, 8, 25, 21, 10, 5, 11};
+
+        Arrays.sort(arr1, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2 - o1;
+            }
+        });
+        System.out.println(Arrays.toString(arr1));
+
+        Arrays.sort(arr1, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o1 - o2;
+            }
+        });
+        System.out.println(Arrays.toString(arr1));
+
+        int i1 = Arrays.binarySearch(arr1, 10);
+        System.out.println(i1);
+        int i2 = Arrays.binarySearch(arr1, 27);
+        System.out.println(i2);
+        int i3 = Arrays.binarySearch(arr1, 30);
+        System.out.println(i3);
+
+//        System.out.println(Arrays.binarySearch(arr, 10));
 
 
     }
