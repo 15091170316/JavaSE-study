@@ -101,6 +101,18 @@ public class Test {
 
 //        System.out.println(Arrays.binarySearch(arr, 10));
 
+        System.out.println("****************************lambda****************************");
+
+        Integer[] arr2 = {2, 6, 3, 11, 22, 26, 9, 15, 27, 11, 4, 8, 25, 21, 10, 5, 11};
+
+        Arrays.sort(arr2, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2 - o1;
+            }
+        });
+        System.out.println(Arrays.toString(arr2));
+
 
     }
 }
