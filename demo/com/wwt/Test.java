@@ -3,6 +3,9 @@ package com.wwt;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Iterator;
+import java.util.TreeSet;
+import java.util.function.Consumer;
 
 public class Test {
     public static void main(String[] args) {
@@ -113,6 +116,52 @@ public class Test {
         });
         System.out.println(Arrays.toString(arr2));
 
+        System.out.println("********************treeSet**********************");
 
+        TreeSet<Integer> integers = new TreeSet<>();
+        integers.add(4);
+        integers.add(2);
+        integers.add(5);
+        integers.add(1);
+        integers.add(3);
+        integers.add(6);
+
+        System.out.println(integers);
+
+        Iterator<Integer> iterator = integers.iterator();
+        while (iterator.hasNext()) {
+            System.out.print(iterator.next() + " ");
+        }
+        System.out.println();
+
+        for (Integer integer : integers) {
+            System.out.print(integer + " ");
+        }
+        System.out.println();
+
+        integers.forEach(new Consumer<Integer>() {
+            @Override
+            public void accept(Integer integer) {
+                System.out.print(integer + " ");
+            }
+        });
+        System.out.println();
+
+        integers.forEach(integer -> System.out.print(integer + " "));
+        System.out.println();
+
+        System.out.println("---------------------可变参数-------------------------");
+
+        System.out.println(getSum(1, 2, 3));
+        System.out.println(getSum(1, 2, 3, 5, 10, 9));
+    }
+
+    // 可变参数求和
+    public static int getSum(int... arr) {
+        int sum = 0;
+        for (int i : arr) {
+            sum += i;
+        }
+        return sum;
     }
 }
