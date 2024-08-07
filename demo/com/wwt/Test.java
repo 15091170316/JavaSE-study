@@ -1,10 +1,7 @@
 package com.wwt;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.function.Consumer;
 
 public class Test {
@@ -154,6 +151,29 @@ public class Test {
 
         System.out.println(getSum(1, 2, 3));
         System.out.println(getSum(1, 2, 3, 5, 10, 9));
+
+        System.out.println("---------------------Collections-------------------------");
+
+        ArrayList<String> arr4 = new ArrayList<>();
+        Collections.addAll(arr4, "123", "abc", "456", "aaa", "zzz");
+        System.out.println(arr4);
+
+        Collections.shuffle(arr4);
+        System.out.println(arr4);
+
+        Collections.sort(arr4);
+        System.out.println(arr4);
+
+        Collections.sort(arr4, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o2.compareTo(o1);
+            }
+        });
+        System.out.println(arr4);
+
+        System.out.println(Collections.binarySearch(arr4, "123"));
+
     }
 
     // 可变参数求和
